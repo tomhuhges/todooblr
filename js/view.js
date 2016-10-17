@@ -5,17 +5,30 @@ var view = {
 	createTodoItem: function(todo){
 
 		var listItem = document.createElement('li');
+		listItem.className = "todo-item";
 
 		var check = document.createElement('span');
 		check.className = "check";
-		check.textContent = todo.completed ? "(✔)" : "( )";
+		check.textContent = todo.completed ? "(✔) " : "( ) ";
 
-		listItem.textContent = " " + todo.todoText;
-		listItem.insertBefore(check, listItem.firstChild);
+		if ( todo.edit ) {
+			// make text an input if `edit` prop is true
+			var text = document.createElement('input');
+			text.className = "todo-text editable";
+			text.type = "text";
+			text.value = todo.todoText;
+		} else {
+			var text = document.createElement('span');
+			text.className = "todo-text";
+			text.textContent = todo.todoText;
+		}
 
 		var deleteButton = document.createElement('button');
 		deleteButton.textContent = "x";
-		deleteButton.className = "deleteButton";
+		deleteButton.className = "delete-button";
+
+		listItem.appendChild(check);
+		listItem.appendChild(text);
 		listItem.appendChild(deleteButton);
 
 		return listItem;
@@ -38,6 +51,9 @@ var view = {
         controller.list.appendChild(newtodo);
 
       }, this);
+
+      //var editable = document.querySelector(".editable");
+      //if (editable) editable.focus();
 
 	},
 

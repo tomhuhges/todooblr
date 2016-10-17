@@ -40,7 +40,7 @@ button {
     cursor: pointer;
 }
 
-button.deleteButton {
+button.delete-button {
 	background: #fff;
 	color: #00f;
 	padding: 0;
@@ -62,8 +62,30 @@ ul {
 
 li {
 	list-style: none;
+	padding: 5px 0;
 }
 
 span.check {
 	cursor: pointer;
+}
+
+.todo-text {
+	padding: 5px;
+	line-height: 30px;
+}
+
+.todo-text.editable {
+    border: 0;
+    box-shadow: none;
+    padding: 3px 5px;
+    background: rgba(0,0,255,0.1);
+    line-height: normal;
+}
+
+.error-message {
+	display: none;
+}
+
+.error-message.alert {
+	display: block;
 }
