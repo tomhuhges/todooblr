@@ -52,8 +52,8 @@ var view = {
 
       }, this);
 
-      //var editable = document.querySelector(".editable");
-      //if (editable) editable.focus();
+      if ( document.querySelector(".editable") )
+      	document.querySelector(".editable").focus();
 
 	},
 
