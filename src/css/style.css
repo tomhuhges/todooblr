@@ -14,15 +14,58 @@ html, body {
 	margin:0;
 }
 
-#main {
-	max-width: 400px;
-	margin: 50px auto;
-	border: #00f 2px dashed;
-	padding: 50px;
-}
-
 h1 {
 	text-align: center;
+}
+
+#encouragement-bar {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#encouragement-bar img {
+	width: 42px;
+}
+
+.marquee {
+    overflow: hidden;
+    width: 90%;
+    height: 62px;
+    position: relative;
+}
+
+@keyframes marquee {
+  0%  {
+    transform:translateX(150%);
+  }
+  100%{
+    transform:translateX(-100%);
+  }
+}
+
+.marquee p {
+    font-size: 14px;
+    margin-right: 10px;
+    position: absolute;
+    //animation: marquee 10s linear infinite;
+}
+
+#main {
+	max-width: 500px;
+	margin: 50px auto;
+}
+
+#encouragement-bar {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+#todos {
+	border: #00f 2px dashed;
+	padding: 50px;
 }
 
 #list {

@@ -7,24 +7,27 @@
 </head>
 <body>
 	<section id="main">
-		<h1>Todo List</h1>
+		<div id="encouragement-bar">
+			<div class="marquee"></div>
+			<img src="/src/assets/ceo-1.png" alt="ceo"/>
+		</div>
 		<div id="todos">
-
+			<h1>Todo List</h1>
 			<button id="toggle">✔ all</button>
-
 			<div id="list">
-				
 				<ul></ul>
-
 				<input id="addtodo" type="text" name="todo">
 				<button id="add">add</button>
-
 			</div>
 		</div>
 	</section>
-	<script src="js/model.js"></script>
-	<script src="js/view.js"></script>
-	<script src="js/controller.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/collection.js"></script>
+	<script src="js/libs/pubsub.js"></script>
+	<script src="js/todos/view.js"></script>
+	<script src="js/todos/controller.js"></script>
+	<script src="js/encouragement-bar/view.js"></script>
+	<script src="js/encouragement-bar/controller.js"></script>
 	
 </body>
 </html>
