@@ -5,7 +5,7 @@
 	var userSettings = {
 		level: 1,
 		chapter: 1,
-		imagesAvailable: false,
+		recycleBinAvailable: false,
 		labelsAvailable: false,
 		priorityAvailable: false
 	};

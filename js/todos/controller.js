@@ -10,6 +10,13 @@
 			Todooblr.collections.saveData("todos", data);
 		},
 
+		levelUp: function() {
+			var settings = Todooblr.collections.getRecord("userSettings");
+			settings.chapter++;
+			Todooblr.collections.saveData("userSettings", settings);
+			Todooblr.pubsub.trigger('levelUp');
+		},
+
 		addTodo: function(todoText){
 			var data = this.getTodos();
 			data.push({
@@ -23,10 +30,7 @@
 			this.saveTodos(data);
 			Todooblr.pubsub.trigger('todosChange');
 			if ( data.length >= 3 ) {
-				var settings = Todooblr.collections.getRecord("userSettings");
-				settings.chapter++;
-				Todooblr.collections.saveData("userSettings", settings);
-				Todooblr.pubsub.trigger('levelUp');
+				this.levelUp();
 			}
 			
 		},
@@ -54,6 +58,14 @@
 			var data = this.getTodos();
 			data[todo].completed = !data[todo].completed;
 			this.saveTodos(data);
+
+			var allComplete = data.every(function(todo){
+				return todo.completed;
+			});
+			if ( allComplete ) {
+				Todooblr.pubsub.trigger('todosCompleted');
+				this.levelUp();
+			}
 		},
 
 		toggleAll: function(){
@@ -65,6 +77,10 @@
 				todo.completed = allComplete ? false : true;
 			});
 			this.saveTodos(data);
+			if ( allComplete ) {
+				Todooblr.pubsub.trigger('todosCompleted');
+				this.levelUp();
+			}
 		},
 
 		validateInput: function(todoText) {
