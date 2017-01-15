@@ -45,7 +45,7 @@
         encouragements: [
           "our systems need an update."
         ]
-      }
+      },
       2: {
         totaltasks: 1,
         encouragements: [
