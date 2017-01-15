@@ -35,15 +35,18 @@
         ],
       },
       4: {
-        totalTasks: 0,
-        encouragements: [
-          "our systems needs an update!"
-        ],
+        totalTasks: 0
       },
     },
     2: {
       totalChapters: 1,
       1: {
+        totaltasks: 1,
+        encouragements: [
+          "our systems need an update."
+        ]
+      }
+      2: {
         totaltasks: 1,
         encouragements: [
           "it looks like you're trying to delete a todo."
