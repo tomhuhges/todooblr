@@ -14,13 +14,11 @@ Todooblr.achievements = (function(){
 
   function levelUpIsRequired () {
     var data = getData()
-    console.log('levelUp: ', data)
     return data.currentChapter > data.totalChapters ? true : false
   }
 
   function chapterUpIsRequired () {
     var data = getData()
-    console.log('levelUp: ', data)
     return data.currentTask === data.totalTasks ? true : false
   }
 
@@ -29,7 +27,6 @@ Todooblr.achievements = (function(){
     userSettings.level++
     userSettings.chapter = 1 // reset chapter when levelling up
     Todooblr.collections.saveData("userSettings", userSettings)
-    console.log('level up! - ' + userSettings.level + '.' + userSettings.chapter + '.' + userSettings.task)
   }
 
   function chapterUp () {
@@ -37,14 +34,12 @@ Todooblr.achievements = (function(){
     userSettings.chapter++
     userSettings.task = 0 // reset tasks when chaptering up
     Todooblr.collections.saveData("userSettings", userSettings)
-    console.log('chapter up! - ' + userSettings.level + '.' + userSettings.chapter + '.' + userSettings.task)
   }
 
   function taskUp () {
     var userSettings = Todooblr.collections.getRecord("userSettings")
     userSettings.task = Todooblr.checkAchievements(userSettings.level, userSettings.chapter)
     Todooblr.collections.saveData("userSettings", userSettings)
-    console.log('task up! - ' + userSettings.level + '.' + userSettings.chapter + '.' + userSettings.task)
   }
 
   function doRequiredLevelUp () {
