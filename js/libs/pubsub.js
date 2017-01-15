@@ -11,14 +11,14 @@
 
 		off: function( event, callback ) {
 			if ( !this.subs.hasOwnProperty(event) ) return
-			for (var i = this.subs[event].length - 1 i >= 0 i -= 1) {
+			for (var i = this.subs[event].length - 1; i >= 0; i -= 1) {
 			    if (this.subs[event][i].callback === callback) this.subs[event].splice(i,1)
 			}
 		},
 
 		trigger: function(event) {
 			if ( this.subs.hasOwnProperty(event) ) {
-				for ( var i=0 i < this.subs[event].length i++ ) {
+				for ( var i=0; i < this.subs[event].length; i++ ) {
 					this.subs[event][i].callback.apply(this.subs[event][i].context, arguments)
 				}
 			}

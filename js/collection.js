@@ -13,7 +13,7 @@
 
   var gameSettings = {
     1: {
-      totalChapters: 4,
+      totalChapters: 3,
       1: {
         totalTasks: 3,
         encouragements: [
@@ -35,7 +35,7 @@
         ],
       },
       4: {
-        totalTasks: 1,
+        totalTasks: 0,
         encouragements: [
           "our systems needs an update!"
         ],
