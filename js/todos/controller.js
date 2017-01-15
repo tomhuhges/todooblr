@@ -77,7 +77,7 @@
 				todo.completed = allComplete ? false : true;
 			});
 			this.saveTodos(data);
-			if ( allComplete ) {
+			if ( !allComplete ) {
 				Todooblr.pubsub.trigger('todosCompleted');
 				this.levelUp();
 			}

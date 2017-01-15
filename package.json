@@ -1,0 +1,30 @@
+{
+  "name": "todooblr",
+  "version": "1.0.0",
+  "description": "a todo app with gamified \"feature releases\" and other ridiculous things to demonstrate my code organisation skills. uses vanilla js, oop + mvc principles",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "babel-preset-es2015": "^6.18.0",
+    "gulp-babel": "^6.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomhuhges/todooblr.git"
+  },
+  "keywords": [
+    "stupid",
+    "dumb"
+  ],
+  "author": "tomhuhges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomhuhges/todooblr/issues"
+  },
+  "homepage": "https://github.com/tomhuhges/todooblr#readme"
+}
