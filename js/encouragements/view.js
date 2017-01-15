@@ -14,10 +14,7 @@
 		init: function() {
 			this.marquee = document.querySelector('.marquee');
 			this.render();
-			Todooblr.pubsub.on('todosChange', this.render, this);
-			Todooblr.pubsub.on('todosComplete', this.render, this);
-			Todooblr.pubsub.on('todoRenamed', this.render, this);
-			Todooblr.pubsub.on('levelUp', this.render, this);
+			Todooblr.pubsub.on('levelUpConfirmed', this.render, this);
 		}
 
 	}

@@ -1,38 +1,55 @@
 (function(){
 
   var todos = [];
-  
+
   var userSettings = {
     level: 1,
     chapter: 1,
-    recycleBinAvailable: false,
-    labelsAvailable: false,
-    priorityAvailable: false
+    task: 0,
+    // recycleBinAvailable: false,
+    // labelsAvailable: false,
+    // priorityAvailable: false
   };
 
   var gameSettings = {
     1: {
+      totalChapters: 4,
       1: {
-        requiredTodos: 3,
+        totalTasks: 3,
         encouragements: [
-          "i need %d %mtask%s added and i need them yesterday!",
-          "you owe me %d %mtask%s! stat!", 
+          "i need %d %mtask%s added and i need %t yesterday!",
+          "you owe me %d %mtask%s! stat!",
           "create %d %mtask%s if you want to keep your job!"
         ],
       },
       2: {
-        requiredComplete: 3,
+        totalTasks: 3,
         encouragements: [
           "good employee! now mark them as complete."
         ],
       },
       3: {
-        requiredAltered: 1,
+        totalTasks: 1,
         encouragements: [
           "click on a task to rename it. it better be good."
         ],
-      }
+      },
+      4: {
+        totalTasks: 1,
+        encouragements: [
+          "our systems needs an update!"
+        ],
+      },
     },
+    2: {
+      totalChapters: 1,
+      1: {
+        totaltasks: 1,
+        encouragements: [
+          "it looks like you're trying to delete a todo."
+        ]
+      }
+    }
   }
 
   Todooblr.collections = {

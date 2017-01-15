@@ -10,15 +10,18 @@
 			Todooblr.collections.saveData("todos", data);
 		},
 
-		levelUp: function() {
-			var settings = Todooblr.collections.getRecord("userSettings");
-			settings.chapter++;
-			Todooblr.collections.saveData("userSettings", settings);
-			Todooblr.pubsub.trigger('levelUp');
+		taskComplete: function(level, chapter) {
+      var currentLevel = Todooblr.collections.getRecord("userSettings").level
+			var currentChapter = Todooblr.collections.getRecord("userSettings").chapter
+
+			// check if the task is relevant to the current level:chapter
+			if ( level === currentLevel && chapter === currentChapter) {
+				Todooblr.achievements.doRequiredLevelUp()
+			}
 		},
 
 		addTodo: function(todoText){
-			var data = this.getTodos();
+			var data = this.getTodos()
 			data.push({
 		        todoText: todoText,
 		        completed: false,
@@ -26,13 +29,9 @@
 		        labelColor: "",
 		        priority: 0,
 		        edit: false
-		    });
-			this.saveTodos(data);
-			Todooblr.pubsub.trigger('todosChange');
-			if ( data.length >= 3 ) {
-				this.levelUp();
-			}
-			
+		    })
+			this.saveTodos(data)
+			this.taskComplete(1,1)
 		},
 
 		toggleEdit: function(todo){
@@ -43,6 +42,9 @@
 
 		updateTodo: function(todo, todoText) {
 			var data = this.getTodos();
+			if (data[todo].todoText !== todoText) {
+				this.taskComplete(1,3)
+			}
 			data[todo].todoText = todoText;
 			this.saveTodos(data);
 		},
@@ -51,21 +53,14 @@
 			var data = this.getTodos();
 			data.splice(todo, 1);
 			this.saveTodos(data);
-			Todooblr.pubsub.trigger('todosChange');
+			this.taskComplete(1,1)
 		},
 
 		toggleCompleted: function(todo){
 			var data = this.getTodos();
 			data[todo].completed = !data[todo].completed;
 			this.saveTodos(data);
-
-			var allComplete = data.every(function(todo){
-				return todo.completed;
-			});
-			if ( allComplete ) {
-				Todooblr.pubsub.trigger('todosCompleted');
-				this.levelUp();
-			}
+			this.taskComplete(1,2);
 		},
 
 		toggleAll: function(){
@@ -78,8 +73,7 @@
 			});
 			this.saveTodos(data);
 			if ( !allComplete ) {
-				Todooblr.pubsub.trigger('todosCompleted');
-				this.levelUp();
+				this.taskComplete(1,2);
 			}
 		},
 
@@ -162,7 +156,7 @@
 			          		e.target.placeholder = "You must enter a value";
 			          	}
 		        	}
-		        	
+
 		        }
 		    });
 		},

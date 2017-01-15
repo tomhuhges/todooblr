@@ -12,18 +12,20 @@
 
 			if ( level === 1 ) {
 				if ( chapter === 1 ) {
-					var requiredTodos = Todooblr.collections.getRecord('gameSettings')[level][chapter].requiredTodos;
-					var todosLength = Todooblr.collections.getRecord("todos").length;
-					var todosLeft = (requiredTodos - todosLength)+'';
-					var more = todosLeft == requiredTodos ? '' : 'more ';
-					var s = (requiredTodos - todosLength) == 1 ? '' : 's';
-					encouragement = encouragement.replace('%d', todosLeft )
+					var totalTasks = Todooblr.collections.getRecord('gameSettings')[level][chapter].totalTasks;
+					var tasksDone = Todooblr.collections.getRecord('userSettings').task;
+					var tasksLeft = (totalTasks - tasksDone);
+					var more = tasksLeft === totalTasks ? '' : 'more ';
+					var plural = tasksLeft === 1 ? '' : 's';
+					var pronoun = tasksLeft === 1 ? 'it' : 'them';
+					encouragement = encouragement.replace('%d', tasksLeft+'' )
 						.replace('%m', more)
-						.replace('%s', s);
+						.replace('%s', plural)
+						.replace('%t', pronoun);
 				}
-				
+
 			}
-			
+
 			return encouragement;
 		},
 
