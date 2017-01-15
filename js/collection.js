@@ -1,6 +1,6 @@
 (function(){
 
-  var todos = [];
+  var todos = []
 
   var userSettings = {
     level: 1,
@@ -9,7 +9,7 @@
     // recycleBinAvailable: false,
     // labelsAvailable: false,
     // priorityAvailable: false
-  };
+  }
 
   var gameSettings = {
     1: {
@@ -54,21 +54,21 @@
 
   Todooblr.collections = {
     getAllData: function(){
-      return JSON.parse(localStorage);
+      return JSON.parse(localStorage)
     },
     getRecord: function(model){
-      return JSON.parse(localStorage[model]);
+      return JSON.parse(localStorage[model])
     },
     saveData: function(model, data){
-      localStorage.setItem(model, JSON.stringify(data));
+      localStorage.setItem(model, JSON.stringify(data))
     },
     init: function(){
       if ( localStorage.length === 0 ) {
-        this.saveData('todos', todos);
-        this.saveData('userSettings', userSettings);
-        this.saveData('gameSettings', gameSettings);
+        this.saveData('todos', todos)
+        this.saveData('userSettings', userSettings)
+        this.saveData('gameSettings', gameSettings)
       }
     }
-  };
+  }
 
-})();
+})()
