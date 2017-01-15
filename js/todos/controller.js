@@ -11,7 +11,7 @@
 		},
 
 		taskComplete: function(level, chapter) {
-      var currentLevel = Todooblr.collections.getRecord("userSettings").level
+			var currentLevel = Todooblr.collections.getRecord("userSettings").level
 			var currentChapter = Todooblr.collections.getRecord("userSettings").chapter
 
 			// check if the task is relevant to the current level:chapter
@@ -23,13 +23,13 @@
 		addTodo: function(todoText){
 			var data = this.getTodos()
 			data.push({
-		        todoText: todoText,
-		        completed: false,
-		        labelText: "",
-		        labelColor: "",
-		        priority: 0,
-		        edit: false
-		    })
+				todoText: todoText,
+				completed: false,
+				labelText: "",
+				labelColor: "",
+				priority: 0,
+				edit: false
+			})
 			this.saveTodos(data)
 			this.taskComplete(1,1)
 		},
@@ -91,65 +91,65 @@
 
 			self.todos.addEventListener('click', function(e){
 
-		    var clicked = e.target
+				var clicked = e.target
 
-		    if ( clicked.id === "toggle" ) {
-          self.toggleAll()
-          Todooblr.view.render()
-        }
+				if ( clicked.id === "toggle" ) {
+					self.toggleAll()
+					Todooblr.view.render()
+				}
 
-        if ( clicked.id === "add" ) {
-        	if ( self.validateInput(self.addtodo.value) ) {
-        		self.addTodo(self.addtodo.value)
-	            self.addtodo.value = ""
-	            self.addtodo.placeholder = ""
-	            Todooblr.view.render()
-        	} else {
-        		self.addtodo.placeholder = "You must enter a value"
-        	}
-        }
+				if ( clicked.id === "add" ) {
+					if ( self.validateInput(self.addtodo.value) ) {
+						self.addTodo(self.addtodo.value)
+							self.addtodo.value = ""
+							self.addtodo.placeholder = ""
+							Todooblr.view.render()
+					} else {
+						self.addtodo.placeholder = "You must enter a value"
+					}
+				}
 
-		    if ( clicked.className === "check") {
-          self.toggleCompleted(+clicked.parentNode.id)
-          Todooblr.view.render()
-        }
+				if ( clicked.className === "check") {
+					self.toggleCompleted(+clicked.parentNode.id)
+					Todooblr.view.render()
+				}
 
-        if ( clicked.className === "todo-text") {
-          self.toggleEdit(+clicked.parentNode.id)
-          Todooblr.view.render()
-        }
+				if ( clicked.className === "todo-text") {
+					self.toggleEdit(+clicked.parentNode.id)
+					Todooblr.view.render()
+				}
 
-        if ( clicked.className === "delete-button") {
-          self.deleteTodo(+clicked.parentNode.id)
-          Todooblr.view.render()
-        }
-		  })
+				if ( clicked.className === "delete-button") {
+					self.deleteTodo(+clicked.parentNode.id)
+					Todooblr.view.render()
+				}
+			})
 
-		  self.todos.addEventListener('keyup', function(e){
-        var pressed = e.keyCode
-        if ( pressed === 13 ) { // return/enter
-        	if ( e.target === self.addtodo ) {
-        		if ( self.validateInput(self.addtodo.value) ) {
-	        		self.addTodo(self.addtodo.value)
-	          		self.addtodo.value = ""
-	          		e.target.placeholder = ""
-	          		Todooblr.view.render()
-	          	} else {
-	          		e.target.placeholder = "You must enter a value"
-	          	}
-        	}
-        	if ( e.target.className === "todo-text editable" ) {
-        		if ( self.validateInput(e.target.value) ) {
-		          self.updateTodo(e.target.parentNode.id, e.target.value)
-	            self.toggleEdit(+e.target.parentNode.id)
-          		e.target.placeholder = ""
-	            Todooblr.view.render()
-	          } else {
-	          	e.target.placeholder = "You must enter a value"
-	          }
-        	}
-		    }
-		  })
+			self.todos.addEventListener('keyup', function(e){
+				var pressed = e.keyCode
+				if ( pressed === 13 ) { // return/enter
+					if ( e.target === self.addtodo ) {
+						if ( self.validateInput(self.addtodo.value) ) {
+							self.addTodo(self.addtodo.value)
+								self.addtodo.value = ""
+								e.target.placeholder = ""
+								Todooblr.view.render()
+							} else {
+								e.target.placeholder = "You must enter a value"
+							}
+					}
+					if ( e.target.className === "todo-text editable" ) {
+						if ( self.validateInput(e.target.value) ) {
+							self.updateTodo(e.target.parentNode.id, e.target.value)
+							self.toggleEdit(+e.target.parentNode.id)
+							e.target.placeholder = ""
+							Todooblr.view.render()
+						} else {
+							e.target.placeholder = "You must enter a value"
+						}
+					}
+				}
+			})
 		},
 
 		init: function(){
