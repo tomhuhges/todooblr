@@ -19,6 +19,13 @@ Todooblr.checkAchievements = (function(){
           return 1
         }
       }
+    },
+    2: {
+      1: {
+        tasksComplete: function() {
+          return 1
+        }
+      }
     }
   }
 

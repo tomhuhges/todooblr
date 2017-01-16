@@ -132,3 +132,22 @@ span.check {
 .error-message.alert {
 	display: block;
 }
+
+div#notification div {
+    position: absolute;
+    right: -300px;
+    top: 0;
+    width: 200px;
+    padding: 10px;
+    margin: 20px;
+    background: #ececec;
+    color: #333;
+    text-align: center;
+    font-size: 16px;
+    transition: all 1s;
+    animation: slide 0.5s forwards;
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}
