@@ -13,6 +13,7 @@
 
   var gameSettings = {
     1: {
+      title: "Todo List",
       totalChapters: 3,
       1: {
         totalTasks: 3,
@@ -39,6 +40,7 @@
       },
     },
     2: {
+      title: "TotalTodo.Biz!",
       totalChapters: 3,
       1: {
         totalTasks: 1,

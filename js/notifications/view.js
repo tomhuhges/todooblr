@@ -29,6 +29,8 @@ Todooblr.notificationsView = (function() {
       if (e.target.id === 'update') {
         hideNotification()
         Todooblr.achievements.doRequiredLevelUp()
+        var level = Todooblr.collections.getRecord("userSettings").level
+        Todooblr.controller.changeStyle(level)
       }
     })
   }

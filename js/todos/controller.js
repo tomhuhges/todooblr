@@ -10,6 +10,10 @@
       Todooblr.collections.saveData("todos", data)
     },
 
+    getLevel: function() {
+      return Todooblr.collections.getRecord("userSettings").level
+    }
+
     taskComplete: function(level, chapter) {
       var currentLevel = Todooblr.collections.getRecord("userSettings").level
       var currentChapter = Todooblr.collections.getRecord("userSettings").chapter
@@ -85,8 +89,6 @@
         true
     },
 
-    fireNotification: function() {},
-
     bindEvents: function() {
 
       var self = this
@@ -156,9 +158,12 @@
 
     init: function() {
 
-      this.todos = document.getElementById('todos')
+      this.main = document.getElementById("main")
+      this.todos = document.getElementById("todos")
       this.list = document.querySelector("ul")
       this.addtodo = document.getElementById("addtodo")
+      this.encouragementImg = document.getElementById("encouragement-img")
+      this.title = document.getElementById("title")
 
       Todooblr.collections.init()
       this.bindEvents()

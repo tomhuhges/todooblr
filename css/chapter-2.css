@@ -1,0 +1,149 @@
+.level-2 * {
+  font-family: "source sans pro", sans-serif;
+  color: #00f;
+}
+
+.level-2 h1 {
+  text-align: center;
+}
+
+.level-2 #encouragement-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.level-2 #encouragement-bar img {
+  width: 42px;
+}
+
+.level-2 .marquee {
+  overflow: hidden;
+  width: 90%;
+  height: 62px;
+  position: relative;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.level-2 .marquee p {
+  font-size: 14px;
+  margin-right: 10px;
+  position: absolute;
+  //animation: marquee 10s linear infinite;
+}
+
+#main.level-2 {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.level-2 #encouragement-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.level-2 #todos {
+  border: #00f 2px dashed;
+  padding: 50px;
+}
+
+.level-2 #list {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.level-2 button {
+  background: #00f;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.level-2 button.delete-button {
+  background: #fff;
+  color: #00f;
+  padding: 0;
+  margin-left: 20px;
+  float: right;
+}
+
+.level-2 input {
+  border: 2px #00f solid;
+  padding: 8px;
+  box-shadow: #00f 5px 5px 5px;
+  flex: 0.7 1 auto;
+}
+
+.level-2 ul {
+  padding: 0;
+  flex: 0 1 100%;
+}
+
+.level-2 li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.level-2 span.check {
+  cursor: pointer;
+}
+
+.level-2 .todo-text {
+  padding: 5px;
+  line-height: 30px;
+}
+
+.level-2 .todo-text.editable {
+  border: 0;
+  box-shadow: none;
+  padding: 3px 5px;
+  background: rgba(0, 0, 255, 0.1);
+  line-height: normal;
+}
+
+.level-2 .error-message {
+  display: none;
+}
+
+.level-2 .error-message.alert {
+  display: block;
+}
+
+.level-2 div#notification div {
+  position: absolute;
+  right: -300px;
+  top: 0;
+  width: 200px;
+  padding: 10px;
+  margin: 20px;
+  background: #ececec;
+  color: #333;
+  text-align: center;
+  font-size: 16px;
+  animation: slide 0.5s forwards;
+}
+
+.level-2 div#notification.hidden {
+  transition: all 1s;
+  filter: blur(100px);
+  opacity: 0;
+}
+
+@keyframes slide {
+  100% {
+    right: 0;
+  }
+}
