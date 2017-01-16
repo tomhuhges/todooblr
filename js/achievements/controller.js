@@ -1,13 +1,13 @@
 Todooblr.achievements = (function(){
 
   function getData () {
-    var userSettings = Todooblr.collections.getRecord("userSettings");
-    var gameSettings = Todooblr.collections.getRecord("gameSettings");
+    var userSettings = Todooblr.collections.getRecord("userSettings")
+    var gameSettings = Todooblr.collections.getRecord("gameSettings")
 
     return {
       currentChapter: userSettings.chapter,
       totalChapters: gameSettings[userSettings.level].totalChapters,
-      currentTask: userSettings.task ,
+      currentTask: userSettings.task,
       totalTasks: gameSettings[userSettings.level][userSettings.chapter].totalTasks,
     }
   }
@@ -47,7 +47,7 @@ Todooblr.achievements = (function(){
     if (chapterUpIsRequired()) chapterUp()
     if (levelUpIsRequired()) levelUp()
     Todooblr.pubsub.trigger('levelUpConfirmed')
-	}
+  }
 
   return {
     doRequiredLevelUp: doRequiredLevelUp

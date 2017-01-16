@@ -1,4 +1,4 @@
-Todooblr.checkAchievements = (function(){
+Todooblr.checkAchievements = (function() {
 
   var achievementRequirements = {
     1: {
@@ -10,7 +10,9 @@ Todooblr.checkAchievements = (function(){
       2: {
         tasksComplete: function() {
           return Todooblr.collections.getRecord('todos')
-            .filter(function(todo){ return todo.completed })
+            .filter(function(todo) {
+              return todo.completed
+            })
             .length
         }
       },

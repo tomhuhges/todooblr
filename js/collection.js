@@ -1,4 +1,4 @@
-(function(){
+(function() {
 
   var todos = []
 
@@ -56,17 +56,17 @@
   }
 
   Todooblr.collections = {
-    getAllData: function(){
+    getAllData: function() {
       return JSON.parse(localStorage)
     },
-    getRecord: function(model){
+    getRecord: function(model) {
       return JSON.parse(localStorage[model])
     },
-    saveData: function(model, data){
+    saveData: function(model, data) {
       localStorage.setItem(model, JSON.stringify(data))
     },
-    init: function(){
-      if ( localStorage.length === 0 ) {
+    init: function() {
+      if (localStorage.length === 0) {
         this.saveData('todos', todos)
         this.saveData('userSettings', userSettings)
         this.saveData('gameSettings', gameSettings)

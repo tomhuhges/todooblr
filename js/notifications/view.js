@@ -1,4 +1,4 @@
-Todooblr.notificationsView = (function(){
+Todooblr.notificationsView = (function() {
 
   var container = document.getElementById('notification')
 
@@ -16,14 +16,14 @@ Todooblr.notificationsView = (function(){
 
   function hideNotification() {
     container.classList.toggle('hidden')
-    setTimeout(function(){
+    setTimeout(function() {
       container.innerHTML = ''
       container.classList.toggle('hidden')
-    },1000)
+    }, 1000)
   }
 
   function bindEvents() {
-    container.addEventListener('click', function(e){
+    container.addEventListener('click', function(e) {
       e.preventDefault()
       var clicked = e.target
       if (e.target.id === 'update') {
