@@ -15,7 +15,11 @@ Todooblr.notificationsView = (function(){
   }
 
   function hideNotification() {
-    container.innerHTML = ''
+    container.classList.toggle('hidden')
+    setTimeout(function(){
+      container.innerHTML = ''
+      container.classList.toggle('hidden')
+    },1000)
   }
 
   function bindEvents() {

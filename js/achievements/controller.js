@@ -19,8 +19,6 @@ Todooblr.achievements = (function(){
 
   function chapterUpIsRequired () {
     var data = getData()
-    console.log(data.currentTask, data.totalTasks)
-    if (data.currentTask === data.totalTasks) console.log('chapter up')
     return data.currentTask === data.totalTasks ? true : false
   }
 

@@ -1,14 +1,9 @@
 Todooblr.notifications = (function() {
 
-  var currentLevel = Todooblr.collections.getRecord("userSettings").level
-
   function notificationShouldFire() {
-    var latestLevel = Todooblr.collections.getRecord("userSettings").level
-    if (latestLevel !== currentLevel) {
-      currentLevel++
-      return true
-    }
-    return false
+    var level = Todooblr.collections.getRecord("userSettings").level
+    var chapter = Todooblr.collections.getRecord("userSettings").chapter
+    return level !== 1 && chapter === 1 ? true : false
   }
 
   function fireNotification() {
@@ -18,6 +13,7 @@ Todooblr.notifications = (function() {
   }
 
   function init() {
+    fireNotification()
     Todooblr.pubsub.on('levelUpConfirmed', fireNotification)
   }
 
